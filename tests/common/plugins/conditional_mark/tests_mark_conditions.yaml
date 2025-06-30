@@ -1237,12 +1237,6 @@ hash/test_generic_hash.py::test_lag_member_flap[CRC-IP_PROTOCOL-ipv4:
     conditions:
       - "asic_type in ['cisco-8000']"
 
-hash/test_generic_hash.py::test_lag_member_flap[CRC_CCITT-INNER_IP_PROTOCOL:
-  skip:
-    reason: "On Mellanox platforms, due to HW limitation, it would not support CRC algorithm on INNER_IP_PROTOCOL field"
-    conditions:
-    - "asic_type in ['mellanox']"
-
 hash/test_generic_hash.py::test_lag_member_flap[CRC_CCITT-IN_PORT:
   skip:
     reason: "On Mellanox platforms, due to HW limitation, when ecmp and lag hash at the same time, it would not support
@@ -1250,12 +1244,17 @@ hash/test_generic_hash.py::test_lag_member_flap[CRC_CCITT-IN_PORT:
     conditions:
     - "asic_type in ['broadcom', 'mellanox']"
 
+hash/test_generic_hash.py::test_lag_member_flap[CRC_CCITT-INNER_IP_PROTOCOL:
+  skip:
+    reason: "On Mellanox platforms, due to HW limitation, it would not support CRC algorithm on INNER_IP_PROTOCOL field"
+    conditions:
+    - "asic_type in ['mellanox']"
+
 hash/test_generic_hash.py::test_lag_member_flap[CRC_CCITT-IP_PROTOCOL-ipv4:
   skip:
     reason: "With IP Protocol alone, we don't have enough entropy to distribute the packets evenly"
     conditions:
       - "asic_type in ['cisco-8000']"
-
 
 hash/test_generic_hash.py::test_lag_member_remove_add:
   skip:
